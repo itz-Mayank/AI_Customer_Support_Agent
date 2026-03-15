@@ -1,105 +1,234 @@
-# 🛎️ AI Customer Support Agent (RAG + Voice, Fully Local)
+# AI Customer Support Agent
+### Fully Local Retrieval-Augmented AI Support System with Voice Interaction
 
-A **fully offline**, privacy-preserving **AI Customer Support System** powered by **local LLMs**, **RAG**, **voice input/output**, and a clean **Streamlit UI**.
+A fully offline, privacy-preserving AI customer support platform designed to operate entirely on local infrastructure. This system integrates Retrieval-Augmented Generation (RAG), speech recognition, text-to-speech synthesis, and conversational reasoning powered by a local large language model.
 
-This project acts as a complete customer-support automation agent capable of:
+The agent behaves like a human support representative. It can understand natural language queries, retrieve information from manuals or documentation, generate contextual responses, compare products, troubleshoot issues, and communicate through both text and voice.
 
-- understanding user questions  
-- retrieving answers from product manuals / PDFs  
-- generating multi-turn conversational responses  
-- recommending and comparing products  
-- responding via text **and** voice  
-
-All computation runs **on-device**, using open-source models.
+All processing runs locally using open-source models, ensuring data privacy, minimal latency, and complete independence from external APIs or cloud services.
 
 ---
 
-## 🚀 Project Overview
+# System Overview
 
-This system combines **Retrieval-Augmented Generation (RAG)**, **speech recognition**, **text-to-speech**, and **local LLM reasoning** to create an AI assistant that behaves like a human customer support representative.
+The AI Customer Support Agent combines modern AI components into a cohesive support automation platform. The system retrieves relevant information from product documentation, reasons over the retrieved context using a local LLM, and generates conversational responses similar to a human customer support representative.
 
-You can ask the agent:
+Users can interact with the system through a simple chat interface or voice input. The system can also respond with synthesized speech, enabling hands-free interaction.
 
-> “What’s the battery life of the X200 headset?”  
-> “Compare model A and model B for gaming.”  
-> “My device won’t turn on — what should I try?”  
-> “Read the safety section from the manual.”
+Example queries the system can handle:
 
-The agent will search your PDFs, embed relevant sections, reason using a local LLM, and reply — optionally with synthesized voice.
+- What is the battery life of the X200 headset?
+- Compare Model A and Model B for gaming performance.
+- My device does not power on. What troubleshooting steps should I follow?
+- Read the safety section from the user manual.
 
----
-
-## 🌟 Features
-
-### 🧠 Local LLM-Powered Reasoning
-- Runs **Mistral 7B Instruct (GGUF)** using `llama-cpp-python`
-- Multi-turn conversational memory  
-- Handles troubleshooting, FAQs, product comparisons  
-
-### 🔍 RAG Search Across PDFs & Manuals
-- Index and query documents using **FAISS vector search**
-- Automated chunking, embedding, and retrieval
-- Greatly reduces hallucinations  
-
-### 🎙️ Voice Input (STT)
-- Microphone-based input  
-- Speech-to-text using **Whisper Tiny** (fast + offline)
-
-### 🔊 Voice Output (TTS)
-- Synthesized audio responses using **Coqui TTS**
-- Multiple voices supported  
-- Enables “hands-free” mode  
-
-### 🖥️ Streamlit UI
-- Clean chat interface (text + voice)
-- Document upload system  
-- Saves session history  
-
-### 🌐 FastAPI Backend
-- `/chat` endpoint  
-- `/voice` endpoint  
-- `/recommend` endpoint  
-- Connectable with apps, CRMs, support systems  
-
-### 💾 Persistent Session Storage
-- Saves embeddings, chat history, and RAG cache  
-
-### 🔒 Fully Offline
-- No cloud APIs  
-- Enterprise and privacy-safe  
+The system retrieves relevant sections from indexed documents, processes them through the language model, and generates accurate responses.
 
 ---
 
-## 🧩 Tech Stack
+# Key Capabilities
 
+## Local Language Model Reasoning
+
+The conversational reasoning engine is powered by **Mistral 7B Instruct** running locally using `llama-cpp-python`.
+
+Capabilities include:
+
+- Multi-turn conversations
+- Troubleshooting assistance
+- Product comparisons
+- Context-aware question answering
+
+Running the model locally ensures full control over inference and removes dependency on external LLM APIs.
+
+---
+
+## Retrieval-Augmented Knowledge Base
+
+The system implements **Retrieval-Augmented Generation (RAG)** using **FAISS vector search**.
+
+Product manuals and documentation are:
+
+- automatically chunked
+- embedded using sentence embeddings
+- indexed for semantic retrieval
+
+When a query is received, the system retrieves relevant document sections and passes them as context to the language model, improving accuracy and reducing hallucinations.
+
+---
+
+## Speech Recognition
+
+Voice interaction is supported using **Whisper Tiny**.
+
+Features:
+
+- Microphone-based speech input
+- Fully offline speech-to-text conversion
+- Fast inference suitable for local deployment
+
+This enables natural voice interaction with the support assistant.
+
+---
+
+## Speech Synthesis
+
+Responses can be converted into speech using **Coqui TTS**.
+
+Features:
+```
+- Natural voice synthesis
+- Multiple voice models
+- Real-time audio responses
+```
+This allows the assistant to function as a fully voice-enabled customer support agent.
+
+---
+
+## Interactive User Interface
+
+A lightweight **Streamlit interface** provides a chat-based environment where users can:
+```
+- ask questions
+- upload product manuals or documents
+- view generated responses
+- interact using text or voice
+```
+The interface also maintains session history for conversational continuity.
+
+---
+
+## API Backend
+
+The backend is built using **FastAPI**, enabling integration with external systems such as support platforms, CRM tools, or web applications.
+```
+Available endpoints include:
+/chat → conversational interface
+/voice → voice interaction endpoint
+/recommend → product recommendation system
+```
+
+This architecture allows the system to be deployed as an independent AI microservice.
+
+---
+
+# Architecture
+
+```
+User Query (Text or Voice)
+         ↓
+ Speech-to-Text (Whisper)
+         ↓
+   Query Processing
+         ↓
+FAISS Vector Search (RAG)
+         ↓
+   Context Retrieval
+         ↓
+Local LLM Reasoning (Mistral 7B)
+         ↓
+   Response Generation
+         ↓
+Text Output + Optional TTS Audio
+```
+
+---
+
+# Technology Stack
+```
 | Component | Technology |
-|----------|------------|
-| **LLM** | Mistral 7B Instruct (GGUF) |
-| **Vector DB** | FAISS |
-| **STT** | Whisper Tiny |
-| **TTS** | Coqui TTS |
-| **Backend** | FastAPI |
-| **Frontend** | Streamlit |
-| **Embeddings** | Instructor-XL / all-MiniLM |
-| **Model Loader** | llama-cpp-python |
+|-----------|------------|
+| Language Model | Mistral 7B Instruct (GGUF) |
+| Vector Database | FAISS |
+| Embeddings | Instructor-XL / all-MiniLM |
+| Speech-to-Text | Whisper Tiny |
+| Text-to-Speech | Coqui TTS |
+| Backend | FastAPI |
+| Frontend | Streamlit |
+| Model Loader | llama-cpp-python |
+```
+---
 
+# Project Structure
 
-# AI Customer Support Agent (RAG + Voice)
+```
+ai-customer-support-agent/
+│
+├── api/ # FastAPI backend
+├── rag/ # Retrieval and embedding pipeline
+├── models/ # Local model loaders
+├── ui/ # Streamlit interface
+├── tools/ # Utilities such as PDF indexing
+├── data/
+│ ├── documents/ # Product manuals
+│ ├── embeddings/ # Vector index storage
+│ └── models/ # GGUF models
+│
+├── requirements.txt
+├── README.md
+```
 
-Local, privacy-first customer support assistant:
-- Local LLM (Mistral 7B GGUF via llama-cpp-python)
-- FAISS vector search over PDFs/manuals
-- Local STT: Whisper (tiny)
-- Local TTS: Coqui TTS
-- FastAPI backend + Streamlit demo UI
-- Multi-turn chat, product recommendations, FAQ lookup, save sessions
+---
 
-## Quickstart (local)
-1. Install deps:
-   pip install -r requirements.txt
-2. Place GGUF model: data/models/mistral-7b-instruct.gguf
-3. Index docs: python -m tools.pdf_indexer
-4. Run API:
-   uvicorn api.main:app --reload --port 8000
-5. Run UI:
-   streamlit run ui/app.py
+# Quick Start
+
+### 1. Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+### 2. Download the LLM model
+
+Place the GGUF model in:
+
+```
+data/models/mistral-7b-instruct.gguf
+```
+
+### 3. Index product manuals
+
+```
+python -m tools.pdf_indexer
+```
+
+### 4. Start the backend server
+
+```
+uvicorn api.main:app --reload --port 8000
+```
+
+### 5. Launch the interface
+
+```
+streamlit run ui/app.py
+```
+
+---
+
+# Example Use Cases
+```
+Customer Support Automation  
+Enterprise Knowledge Assistants  
+Technical Documentation Search  
+Product Troubleshooting Systems  
+Offline AI Assistants  
+On-device AI for privacy-sensitive environments
+```
+---
+
+# Future Improvements
+```
+- GPU acceleration support
+- Multi-document knowledge base
+- CRM integration
+- Agent-based workflows
+- Product recommendation engine
+- Multilingual support
+- Web deployment pipeline
+```
+---
+
+# License
+
+This project is released under the MIT License.
