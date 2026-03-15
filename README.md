@@ -152,7 +152,6 @@ Text Output + Optional TTS Audio
 
 # Project Structure
 
-```
 ai-customer-support-agent/
 │
 ├── api/ # FastAPI backend
@@ -167,7 +166,6 @@ ai-customer-support-agent/
 │
 ├── requirements.txt
 ├── README.md
-```
 
 ---
 
