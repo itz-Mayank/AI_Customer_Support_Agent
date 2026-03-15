@@ -76,11 +76,11 @@ This enables natural voice interaction with the support assistant.
 Responses can be converted into speech using **Coqui TTS**.
 
 Features:
-```
+
 - Natural voice synthesis
 - Multiple voice models
 - Real-time audio responses
-```
+
 This allows the assistant to function as a fully voice-enabled customer support agent.
 
 ---
@@ -88,12 +88,12 @@ This allows the assistant to function as a fully voice-enabled customer support 
 ## Interactive User Interface
 
 A lightweight **Streamlit interface** provides a chat-based environment where users can:
-```
+
 - ask questions
 - upload product manuals or documents
 - view generated responses
 - interact using text or voice
-```
+
 The interface also maintains session history for conversational continuity.
 
 ---
@@ -101,12 +101,12 @@ The interface also maintains session history for conversational continuity.
 ## API Backend
 
 The backend is built using **FastAPI**, enabling integration with external systems such as support platforms, CRM tools, or web applications.
-```
+
 Available endpoints include:
 /chat → conversational interface
 /voice → voice interaction endpoint
 /recommend → product recommendation system
-```
+
 
 This architecture allows the system to be deployed as an independent AI microservice.
 
@@ -135,7 +135,7 @@ Text Output + Optional TTS Audio
 ---
 
 # Technology Stack
-```
+
 | Component | Technology |
 |-----------|------------|
 | Language Model | Mistral 7B Instruct (GGUF) |
@@ -146,7 +146,7 @@ Text Output + Optional TTS Audio
 | Backend | FastAPI |
 | Frontend | Streamlit |
 | Model Loader | llama-cpp-python |
-```
+
 ---
 
 # Project Structure
