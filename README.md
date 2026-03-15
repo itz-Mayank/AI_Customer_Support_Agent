@@ -103,10 +103,11 @@ The interface also maintains session history for conversational continuity.
 The backend is built using **FastAPI**, enabling integration with external systems such as support platforms, CRM tools, or web applications.
 
 Available endpoints include:
+```
 /chat → conversational interface
 /voice → voice interaction endpoint
 /recommend → product recommendation system
-
+```
 
 This architecture allows the system to be deployed as an independent AI microservice.
 
@@ -229,6 +230,3 @@ On-device AI for privacy-sensitive environments
 ```
 ---
 
-# License
-
-This project is released under the MIT License.
