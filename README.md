@@ -208,18 +208,18 @@ streamlit run ui/app.py
 ---
 
 # Example Use Cases
-```
+
 Customer Support Automation  
 Enterprise Knowledge Assistants  
 Technical Documentation Search  
 Product Troubleshooting Systems  
 Offline AI Assistants  
 On-device AI for privacy-sensitive environments
-```
+
 ---
 
 # Future Improvements
-```
+
 - GPU acceleration support
 - Multi-document knowledge base
 - CRM integration
@@ -227,6 +227,6 @@ On-device AI for privacy-sensitive environments
 - Product recommendation engine
 - Multilingual support
 - Web deployment pipeline
-```
+
 ---
 
