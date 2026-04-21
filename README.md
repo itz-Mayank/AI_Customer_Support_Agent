@@ -1,7 +1,7 @@
 # AI Customer Support Agent
 ### Fully Local Retrieval-Augmented AI Support System with Voice Interaction
 
-A fully offline, privacy-preserving AI customer support platform designed to operate entirely on local infrastructure. This system integrates Retrieval-Augmented Generation (RAG), speech recognition, text-to-speech synthesis, and conversational reasoning powered by a local large language model. 
+A fully offline, privacy-preserving AI customer support platform designed to operate entirely on local infrastructure. This system integrates Retrieval-Augmented Generation (RAG), speech recognition, text-to-speech synthesis, and conversational reasoning powered by a local large language model.
  
 The agent behaves like a human support representative. It can understand natural language queries, retrieve information from manuals or documentation, generate contextual responses, compare products, troubleshoot issues, and communicate through both text and voice.
 
